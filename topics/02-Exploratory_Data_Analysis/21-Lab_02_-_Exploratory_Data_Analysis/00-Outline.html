@@ -71,11 +71,11 @@
 									<ul class="dropdown-menu" role="menu">
 										<li class="dropdown-header">Topics</li>
 										
-										<li class="active">
+										<li >
 											<a href="../../../topics/01-Module_Overview/index.html">Module Overview</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="../../../topics/02-Exploratory_Data_Analysis/index.html">Exploratory Data Analysis</a>
 										</li>
 										
@@ -141,47 +141,11 @@
 										<li class="dropdown-header">Resources</li>
 										
 										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#01-Pre-Start_Lab">Pre-Start Lab</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#02-Pre-Start_Lab_-_Feedback">Pre-Start Lab - Feedback</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#03-Module_Introduction">Module Introduction</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#04-A_Review_of_Statistical_Concepts">A Review of Statistical Concepts</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#05-Optimisation_Overview">Optimisation Overview</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#06-Top_X_pandas_commands">Top X pandas commands</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#07-Software_Setup">Software Setup</a>
+											<a href="../../../topics/02-Exploratory_Data_Analysis/index.html#01-Exploratory_Data_Analysis">Exploratory Data Analysis</a>
 										</li>
 										
 										<li class="active">
-											<a href="../../../topics/01-Module_Overview/index.html#21-Lab_01_-_Introduction_to_Pandas">Lab 01 - Introduction to Pandas</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#22-Lab_01_-_Feedback">Lab 01 - Feedback</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#36-Top_X_pandas_commands_old">Top X pandas commands old</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#42-Additional_Resources">Additional Resources</a>
+											<a href="../../../topics/02-Exploratory_Data_Analysis/index.html#21-Lab_02_-_Exploratory_Data_Analysis">Lab 02 - Exploratory Data Analysis</a>
 										</li>
 										
 									</ul>
@@ -204,14 +168,6 @@
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
-										<li >
-											<a href="01-Tips.html">Tips</a>
-										</li>
-										
-										<li >
-											<a href="02-German_Credit.html">German Credit</a>
-										</li>
-										
 									</ul>
 								</li>
 							</ul>
@@ -232,19 +188,25 @@
 			
 			
 			
-			<li class="next"><a href="01-Tips.html">Next (Tips) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 		
 		<h1>Outline</h1>
-<p>In our <a href="../01-Pre-Start_Lab/00-Outline.html">Pre-Start Lab</a> you looked at the <a href="files/tips.csv">tips</a> dataset using whatever tool that you were familiar with.  Today we will: </p>
+<h2>Aim</h2>
+<p>This week's lecture outlines the steps used to perform an exploratory data analysis of three datasets. The aim of this lab is to reproduce the generated metrics and visualisations presented in lecture slides.</p>
+<p>In addition to covering technical questions/issues, we would hope that the lab session on Monday would also be used to discuss interpretation of the generated metrics and visualisations. (In the lecture I sometimes picked extreme cases to illustrate a point, for example, my choice of the chemical features in the Algae Bloom dataset to decide if the distribution was normal or not.)</p>
+<p>Copies of the three datasets given in <a href="./files/eda_datasets.zip">this ZIP archive</a>.</p>
+<h2>Outline of Steps</h2>
+<h3>Setup</h3>
 <ul>
-<li>revisit the <a href="files/tips.csv">tips</a>  dataset using pandas,</li>
-<li>and examine a well known beginner classification dataset, 
-    the <a href="files/German_Credit.csv">German Credit</a>, using pandas.</li>
+<li>Download and extract <a href="./files/eda_datasets.zip">the three datasets</a>.</li>
+<li>For each dataset create a notebook to preform the EDA. I tend to follow the naming convention of </li>
 </ul>
-<h2>Step 1 &mdash; Create suitable folder structure</h2>
-<p>Create folder structure to keep your notebooks and dataset organised.  Since we will use large datasets over multiple labs, we suggest you organise folders by dataset. So you could have folder tree like the following</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    DATASET_-_TASK.ipynb
+</code></pre></div>
+</td></tr></table>
+<p>so I ended up with file system</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -254,23 +216,72 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>datasets/
-├── <span class="m">01</span>-tips
-│   ├── Lab_01_-_tips_-_quiz.ipynb
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>datasets/
+├── <span class="m">01</span>-Tips
+│   ├── Tips_-_EDA.ipynb
 │   └── tips.csv
-├── <span class="m">02</span>-marks
-│   ├── marks_-_Top_X_Pandas_Commands.ipynb
-│   └── marks.csv
-├── <span class="m">03</span>-German_Credit
-│   ├── Lab_01-German_Credit_-_Quiz.ipynb
-├── ...
+├── <span class="m">03</span>-Titanic
+│   ├── Titanic_-_EDA.ipynb
+│   └── train.csv
+└── <span class="m">04</span>-Algae_Blooms
+    ├── Algae_Blooms_-_EDA.ipynb
+    ├── data
+    │   ├── Analysis.csv
+    │   ├── Analysis.pkl
+    │   └── Analysis_sample.pkl
+    └── src
+        ├── Analysis.txt
+        ├── Eval.txt
+        ├── Sols.txt
+        ├── analysis.data
+        ├── results.data
+        └── results.txt
 </code></pre></div>
 </td></tr></table>
-<h2>Step 2 &mdash; Load dataset and carry out analysis</h2>
-<p>The steps needed to examine both datasets are described in the following pages </p>
+<p>Notice the two sub-folders <code>data</code> and <code>src</code> in the <code>04-Algae_Blooms</code> folder. The <code>src</code> folder was created when you extracted the dataset archive. To create the <code>data</code> folder either use your file explorer, use the Jupyter notebook interface (see left panel) or run the following code in a Jupyter cell:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;src&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3>First Pass &mdash; Load and Initial Clean</h3>
 <ul>
-<li><a href="01-Tips.html">Tips</a></li>
-<li><a href="02-German_Credit.html">German Credit</a></li>
+<li>Nearly all of the steps for this were given in the lecture notes. Only steps missing were converting some of the categorical features with type <code>object</code> to <code>category</code> (e.g. <code>Embarked</code> in the <code>Titanic</code> dataset) and saving the resulting dataset out to pickle format so that meta information (type) is preserved (Only did this for <code>Algae Blooms</code> dataset.) </li>
+</ul>
+<p class="alert alert-info">Note that copying and pasting code from the slides can introduce problems due to the typesetting of certain characters (such as quotes and the minus sign). Instead of copying and pasting you should download <a href="../01-Exploratory_Data_Analysis/files/code_snippets.zip">archive of code snippets</a> where each snippet is in a separate txt file.</p>
+<h3>Second Pass &mdash; Target and Individual Features</h3>
+<ul>
+<li>Here we presented only a subset of the features in each dataset. For example in the <code>Algae Blooms</code> dataset, of the 8 chemical level features we only looked at <code>max_pH</code> and <code>mean_Chlor</code>.</li>
+</ul>
+<h3>Third Pass &mdash; Relationship between Features and Target</h3>
+<ul>
+<li>Reproduce the visualisations given in the slides.</li>
+</ul>
+<h2>Extra Tasks</h2>
+<p>In addition to the above, the following is some additional (optional) tasks:</p>
+<ul>
+<li>
+<p><strong>Resolving 0 values in feature <code>Fare</code> in <code>Titanic</code> dataset.</strong> <br/>
+    Using the value of the other features in the observations where <code>Fare=0</code> determine an appropriate strategy to resolve these missing values.</p>
+</li>
+<li>
+<p><strong>Generating the proposed feature <code>Title</code> from feature <code>Name</code> in <code>Titanic</code> dataset.</strong> <br/>
+    This is very much a (python) programming, rather than a pandas/data mining task. So would suggest you skip this for now if you are new to python.</p>
+</li>
 </ul>
 		
 		<ul class="pager">
@@ -279,7 +290,7 @@
 			
 			
 			
-			<li class="next"><a href="01-Tips.html">Next (Tips) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 

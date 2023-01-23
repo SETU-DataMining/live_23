@@ -169,7 +169,7 @@
 										</li>
 										
 										<li class="active">
-											<a href="../../../topics/01-Module_Overview/index.html#21-Lab_01_-_Introduction_to_Pandas">Lab 01 - Introduction to Pandas</a>
+											<a href="../../../topics/01-Module_Overview/index.html#21-Lab_01_-_Software_Setup_and_Introduction_to_Pandas">Lab 01 - Software Setup and Introduction to Pandas</a>
 										</li>
 										
 										<li >
@@ -196,20 +196,24 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Tips</span
+										<span>Outline</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
-										<li >
+										<li class="active">
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
 										<li class="active">
-											<a href="01-Tips.html">Tips</a>
+											<a href="02-Outline.html">Outline</a>
 										</li>
 										
 										<li >
-											<a href="02-German_Credit.html">German Credit</a>
+											<a href="03-Tips.html">Tips</a>
+										</li>
+										
+										<li >
+											<a href="04-German_Credit.html">German Credit</a>
 										</li>
 										
 									</ul>
@@ -232,79 +236,46 @@
 			
 			
 			
-			<li class="next"><a href="02-German_Credit.html">Next (German Credit) &rarr;</a></li>
+			<li class="next"><a href="03-Tips.html">Next (Tips) &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Tips Dataset</h1>
-<h2>Step 1 &mdash; Download and import dataset</h2>
-<p>Download the dataset, <a href="files/tips.csv">tips</a>, and place it in your working folder. So following suggested structure, place it into <code>datasets/01-tips</code>.</p>
-<h2>Step 2 &mdash; Run up a <code>jupyter-lab</code> interface</h2>
-<p>On Windows (assuming you have anaconda/miniconda) you:</p>
-<table>
-<tr>
-<td style="width: 500px;">
-    <ol>
-        <li>Go to the Windows start menu and select <strong>Anaconda Prompt</strong> under <strong>Anaconda3</strong> (see image).</li>
-        <li>At the prompt enter <code>jupyter-lab</code></li>
-        <li>Your browser should open showing interface similar to than shown below<br/>
-        <img src="files/start.png" alt="" width="400pt" >
-        </li>
-
-    </ol>
-</td>
-<td style="width: 50px;"></td>
-<td><img src="files/anaconda_start_menu.png" alt="" width="200pt" ></td>
-</tr>
-</table>
-
-<p>On linux/OS X you:</p>
-<ol>
-    <li>Open any terminal</li>
-    <li>At the prompt enter <code>jupyter-lab</code> and a browser should open showing the jupyter-lab interface.</li>
-</ol>
-
-<h2>Step 3 &mdash; Create new notebook and load in dataset.</h2>
+		<h1>Outline</h1>
+<p>In our <a href="../01-Pre-Start_Lab/00-Outline.html">Pre-Start Lab</a> you looked at the <a href="files/tips.csv">tips</a> dataset using whatever tool that you were familiar with.  Today we will: </p>
 <ul>
-<li>Click on <strong>Python 3</strong> Notebook.</li>
-<li>By default the notebook name is <code>Untitled.ipynb</code>, for your own sanity you should rename this.  I tend to follow convention (where <code>NUMBER</code>, <code>DATASET</code>, and <code>TASK</code> are replaced by suitable short strings).</li>
+<li>revisit the <a href="files/tips.csv">tips</a>  dataset using pandas,</li>
+<li>and examine a well known beginner classification dataset, 
+    the <a href="files/German_Credit.csv">German Credit</a>, using pandas.</li>
 </ul>
-<p style="text-align:center"><code>
-    Lab_NUMBER_-_DATASET_-_TASK.ipynb
-</code></p>
-
-<ul>
-<li>Import the core data science python packages</li>
-</ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-darkgrid&quot;</span><span class="p">)</span>
+<h2>Step 1 &mdash; Create suitable folder structure</h2>
+<p>Create folder structure to keep your notebooks and dataset organised.  Since we will use large datasets over multiple labs, we suggest you organise folders by dataset. So you could have folder tree like the following</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>datasets/
+├── <span class="m">01</span>-tips
+│   ├── Lab_01_-_tips_-_quiz.ipynb
+│   └── tips.csv
+├── <span class="m">02</span>-marks
+│   ├── marks_-_Top_X_Pandas_Commands.ipynb
+│   └── marks.csv
+├── <span class="m">03</span>-German_Credit
+│   ├── Lab_01-German_Credit_-_Quiz.ipynb
+├── ...
 </code></pre></div>
 </td></tr></table>
+<h2>Step 2 &mdash; Load dataset and carry out analysis</h2>
+<p>The steps needed to examine both datasets are described in the following pages </p>
 <ul>
-<li>Load the dataset to study. Notice the second and third line &mdash; they are there just to check that the dataset set was imported correctly.</li>
+<li><a href="01-Tips.html">Tips</a></li>
+<li><a href="02-German_Credit.html">German Credit</a></li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-<ul>
-<li>Take a look at <a href="https://datamining-202122.github.io/live/topics/01-Module_Overview/index.html#06-Top_X_pandas_commands">Top X Pandas Commands</a> for more details.</li>
-</ul>
-<h2>Step 3 &mdash; Review quiz</h2>
-<p>Open the <a href="https://moodle.wit.ie/mod/quiz/view.php?id=3705804">tips quiz (2nd Attempt)</a> and start answering the questions, using markdown cells to add structure your notebook.</p>
-<p>See figure below for my starting notebook.</p>
-<figure>
-  <img src="files/ready.png" alt="" width="80%" >
-  <figcaption>My notebook after setup and answering Q1, just starting on Q2.</figcaption>
-</figure>
 		
 		<ul class="pager">
 			
@@ -312,7 +283,7 @@
 			
 			
 			
-			<li class="next"><a href="02-German_Credit.html">Next (German Credit) &rarr;</a></li>
+			<li class="next"><a href="03-Tips.html">Next (Tips) &rarr;</a></li>
 			
 		</ul>
 

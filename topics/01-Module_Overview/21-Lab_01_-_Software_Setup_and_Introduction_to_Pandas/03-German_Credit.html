@@ -164,12 +164,8 @@
 											<a href="../../../topics/01-Module_Overview/index.html#06-Top_X_pandas_commands">Top X pandas commands</a>
 										</li>
 										
-										<li >
-											<a href="../../../topics/01-Module_Overview/index.html#07-Software_Setup">Software Setup</a>
-										</li>
-										
 										<li class="active">
-											<a href="../../../topics/01-Module_Overview/index.html#21-Lab_01_-_Introduction_to_Pandas">Lab 01 - Introduction to Pandas</a>
+											<a href="../../../topics/01-Module_Overview/index.html#21-Lab_01_-_Software_Setup_and_Introduction_to_Pandas">Lab 01 - Software Setup and Introduction to Pandas</a>
 										</li>
 										
 										<li >
@@ -196,7 +192,7 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Tips</span
+										<span>German Credit</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
@@ -204,12 +200,16 @@
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
-										<li class="active">
-											<a href="01-Tips.html">Tips</a>
+										<li >
+											<a href="01-Software.html">Software</a>
 										</li>
 										
 										<li >
-											<a href="02-German_Credit.html">German Credit</a>
+											<a href="02-Tips.html">Tips</a>
+										</li>
+										
+										<li class="active">
+											<a href="03-German_Credit.html">German Credit</a>
 										</li>
 										
 									</ul>
@@ -228,52 +228,29 @@
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="00-Outline.html">&larr; Previous (Outline)</a></li>
+			<li class="previous"><a href="02-Tips.html">&larr; Previous (Tips)</a></li>
 			
 			
 			
-			<li class="next"><a href="02-German_Credit.html">Next (German Credit) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Tips Dataset</h1>
-<h2>Step 1 &mdash; Download and import dataset</h2>
-<p>Download the dataset, <a href="files/tips.csv">tips</a>, and place it in your working folder. So following suggested structure, place it into <code>datasets/01-tips</code>.</p>
-<h2>Step 2 &mdash; Run up a <code>jupyter-lab</code> interface</h2>
-<p>On Windows (assuming you have anaconda/miniconda) you:</p>
-<table>
-<tr>
-<td style="width: 500px;">
-    <ol>
-        <li>Go to the Windows start menu and select <strong>Anaconda Prompt</strong> under <strong>Anaconda3</strong> (see image).</li>
-        <li>At the prompt enter <code>jupyter-lab</code></li>
-        <li>Your browser should open showing interface similar to than shown below<br/>
-        <img src="files/start.png" alt="" width="400pt" >
-        </li>
-
-    </ol>
-</td>
-<td style="width: 50px;"></td>
-<td><img src="files/anaconda_start_menu.png" alt="" width="200pt" ></td>
-</tr>
-</table>
-
-<p>On linux/OS X you:</p>
-<ol>
-    <li>Open any terminal</li>
-    <li>At the prompt enter <code>jupyter-lab</code> and a browser should open showing the jupyter-lab interface.</li>
-</ol>
-
-<h2>Step 3 &mdash; Create new notebook and load in dataset.</h2>
+		<h1>German Credit Dataset</h1>
+<p>The German Credit dataset was used as part of the Statlog project, a European-based initiative in the 1990s to evaluate and compare a large number of machine learning algorithms on a range of different classification tasks. </p>
+<p>The dataset describes financial and banking details for customers and the task is to determine whether the customer is good or bad (column <code>Credit_Rating</code>). The task involves predicting whether a customer will pay back a loan.</p>
+<p>The dataset includes 1,000 observation and 20 input variables, 7 of which are numerical (integer) and 13 are categorical.</p>
+<p>In the target column <code>Credit_Rating</code>, there are two levels/classes: </p>
 <ul>
-<li>Click on <strong>Python 3</strong> Notebook.</li>
-<li>By default the notebook name is <code>Untitled.ipynb</code>, for your own sanity you should rename this.  I tend to follow convention (where <code>NUMBER</code>, <code>DATASET</code>, and <code>TASK</code> are replaced by suitable short strings).</li>
+<li>Good Customers: Negative or majority class (70%).</li>
+<li>Bad Customers: Positive or minority class (30%).</li>
 </ul>
-<p style="text-align:center"><code>
-    Lab_NUMBER_-_DATASET_-_TASK.ipynb
-</code></p>
-
+<h2>Step 1 &mdash; Download and import dataset</h2>
+<p>Download the dataset, <a href="files/German_Credit.csv">German Credit</a>, and place it in your working folder. So following the above structure, place it into <code>datasets/03-German_Credit</code>.</p>
+<h2>Step 2 &mdash; Create new notebook and load in dataset.</h2>
 <ul>
+<li>Change to folder <code>datasets/03-German_Credit</code>, and click on <strong>Python 3</strong> Notebook.</li>
+<li>By default the notebook name is <code>Untitled.ipynb</code>. I suggest you rename it to <code>Lab_01-German_Credit_-_Quiz.ipynb</code> or similar.</li>
 <li>Import the core data science python packages</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
@@ -290,29 +267,23 @@
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;German_Credit.csv&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-<ul>
-<li>Take a look at <a href="https://datamining-202122.github.io/live/topics/01-Module_Overview/index.html#06-Top_X_pandas_commands">Top X Pandas Commands</a> for more details.</li>
-</ul>
-<h2>Step 3 &mdash; Review quiz</h2>
-<p>Open the <a href="https://moodle.wit.ie/mod/quiz/view.php?id=3705804">tips quiz (2nd Attempt)</a> and start answering the questions, using markdown cells to add structure your notebook.</p>
-<p>See figure below for my starting notebook.</p>
-<figure>
-  <img src="files/ready.png" alt="" width="80%" >
-  <figcaption>My notebook after setup and answering Q1, just starting on Q2.</figcaption>
-</figure>
+<h2>Step 3 &mdash; Attempt quiz</h2>
+<p>Open the <a href="https://moodle.wit.ie/mod/quiz/view.php?id=3704900">German Credit quiz</a> and answer the questions, using markdown cells to add structure your notebook.</p>
+<p>Again the slides <a href="../index.html#06-Top_X_pandas_commands">Top X Pandas Commands</a> 
+should be of use.</p>
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="00-Outline.html">&larr; Previous (Outline)</a></li>
+			<li class="previous"><a href="02-Tips.html">&larr; Previous (Tips)</a></li>
 			
 			
 			
-			<li class="next"><a href="02-German_Credit.html">Next (German Credit) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 
