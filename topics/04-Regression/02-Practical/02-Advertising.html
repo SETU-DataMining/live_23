@@ -216,38 +216,25 @@
 <p>We recommend that you create an <code>Advertising</code> folder and save the notebook you are working on to that folder.</p>
 <h2>Read the data from a csv file.</h2>
 <p>This is where the <a href="https://pandas.pydata.org/">pandas</a> is very useful, as it provides much of the basic data handling required for python machine learning.</p>
-<<<<<<< HEAD
-<pre class="highlight"><code class="linenums">import pandas as pd
-dataFile = &quot;data/Advertising.csv&quot;
-ad = pd.read_csv(dataFile, index_col=0)</code></pre>
-
-
-=======
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">dataFile</span> <span class="o">=</span> <span class="s2">&quot;data/Advertising.csv&quot;</span>
 <span class="n">ad</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataFile</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
->>>>>>> d3dc5d05eec7375833c3ca0d2babcb265318b520
+</code></pre></div></td></tr></table></div>
+
+
 <h2>Review the data</h2>
 <p>This is an opportunity to use the exploratory data analysis (EDA) techniques that were covered by Kieran in Week 3.</p>
 <p>Use scatter plots, overlaid on the same plot, to get a sense of how Sales varies with Newspaper, Radio and TV.</p>
 <h2>Fit the training data using <em>all</em> the natural predictors</h2>
 <p>As we did in class, we are going to compare different linear models, beginning with the full set of natural predictors. You might find the following helpful:</p>
-<<<<<<< HEAD
-<pre class="highlight"><code class="linenums">import statsmodels.formula.api as sm
-modelAll = sm.ols('Sales ~ TV + Radio + Newspaper', ad).fit()</code></pre>
-
-
-=======
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="n">modelAll</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Sales ~ TV + Radio + Newspaper&#39;</span><span class="p">,</span> <span class="n">ad</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
->>>>>>> d3dc5d05eec7375833c3ca0d2babcb265318b520
+</code></pre></div></td></tr></table></div>
+
+
 <p>As with the diamond data, you will also need the $R^2$ and root-mean-square residual error (RMSRE) of each fit as metrics for this and other OLS fits to the Advertising data.</p>
 <p>You should review the model summary, residuals, etc, to look for evidence that the fit satisfies the assumptions of linear regression. You should make a note of your findings in nearby markdown cells.</p>
 <h2>Use forward selection techniques to find the "best" model</h2>
