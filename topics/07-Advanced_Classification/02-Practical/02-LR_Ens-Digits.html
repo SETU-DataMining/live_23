@@ -83,7 +83,7 @@
 											<a href="../../../topics/03-Data_Modelling_-_Introduction/index.html">Data Modelling - Introduction</a>
 										</li>
 										
-										<li class="active">
+										<li >
 											<a href="../../../topics/04-Regression/index.html">Regression</a>
 										</li>
 										
@@ -95,7 +95,7 @@
 											<a href="../../../topics/06-Data_Modelling_-_Advanced/index.html">Data Modelling - Advanced</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="../../../topics/07-Advanced_Classification/index.html">Advanced Classification</a>
 										</li>
 										
@@ -141,15 +141,11 @@
 										<li class="dropdown-header">Resources</li>
 										
 										<li >
-											<a href="../../../topics/04-Regression/index.html#01-Overview">Overview</a>
+											<a href="../../../topics/07-Advanced_Classification/index.html#01-Classification2-Overview">Classification2-Overview</a>
 										</li>
 										
 										<li class="active">
-											<a href="../../../topics/04-Regression/index.html#02-Practical">Practical</a>
-										</li>
-										
-										<li >
-											<a href="../../../topics/04-Regression/index.html#03-Resources">Resources</a>
+											<a href="../../../topics/07-Advanced_Classification/index.html#02-Practical">Practical</a>
 										</li>
 										
 									</ul>
@@ -164,7 +160,7 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Advertising</span
+										<span>LR Ens-Digits</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
@@ -173,19 +169,19 @@
 										</li>
 										
 										<li >
-											<a href="01-Diamonds.html">Diamonds</a>
+											<a href="01-NB_SVM-PimaDiabetes.html">NB SVM-PimaDiabetes</a>
 										</li>
 										
 										<li class="active">
-											<a href="02-Advertising.html">Advertising</a>
+											<a href="02-LR_Ens-Digits.html">LR Ens-Digits</a>
 										</li>
 										
 										<li >
-											<a href="03-CreditBalance.html">CreditBalance</a>
+											<a href="03-DT-PlayTennis.html">DT-PlayTennis</a>
 										</li>
 										
 										<li >
-											<a href="04-ConfidenceLimits.html">ConfidenceLimits</a>
+											<a href="04-KNN_DT-Iris.html">KNN DT-Iris</a>
 										</li>
 										
 									</ul>
@@ -204,54 +200,36 @@
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="01-Diamonds.html">&larr; Previous (Diamonds)</a></li>
+			<li class="previous"><a href="01-NB_SVM-PimaDiabetes.html">&larr; Previous (NB SVM-PimaDiabetes)</a></li>
 			
 			
 			
-			<li class="next"><a href="03-CreditBalance.html">Next (CreditBalance) &rarr;</a></li>
+			<li class="next"><a href="03-DT-PlayTennis.html">Next (DT-PlayTennis) &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>The Advertising Data Example</h1>
-<p>We recommend that you create an <code>Advertising</code> folder and save the notebook you are working on to that folder.</p>
-<h2>Read the data from a csv file.</h2>
-<p>This is where the <a href="https://pandas.pydata.org/">pandas</a> is very useful, as it provides much of the basic data handling required for python machine learning.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">dataFile</span> <span class="o">=</span> <span class="s2">&quot;data/Advertising.csv&quot;</span>
-<span class="n">ad</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataFile</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-
-
-<h2>Review the data</h2>
-<p>This is an opportunity to use the exploratory data analysis (EDA) techniques that were covered by Kieran in Week 3.</p>
-<p>Use scatter plots, overlaid on the same plot, to get a sense of how Sales varies with Newspaper, Radio and TV.</p>
-<h2>Fit the training data using <em>all</em> the natural predictors</h2>
-<p>As we did in class, we are going to compare different linear models, beginning with the full set of natural predictors. You might find the following helpful:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="n">modelAll</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Sales ~ TV + Radio + Newspaper&#39;</span><span class="p">,</span> <span class="n">ad</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-
-
-<p>As with the diamond data, you will also need the $R^2$ and root-mean-square residual error (RMSRE) of each fit as metrics for this and other OLS fits to the Advertising data.</p>
-<p>You should review the model summary, residuals, etc, to look for evidence that the fit satisfies the assumptions of linear regression. You should make a note of your findings in nearby markdown cells.</p>
-<h2>Use forward selection techniques to find the "best" model</h2>
-<p>The slides presented in class describe how to proceed. This is a "greedy" search technique (in the sense that you choose the best available option at each stage, without trying to decide what would be the best option over all stages). You should find that the best model with the existing predictors has the formula <code>Sales ~ TV + Radio</code> but that it can be improved if the TV-radio interaction term <code>TV:Radio</code> is added.</p>
-<h2>Plotting the multivariate residuals</h2>
-<p>With the Diamond data, there was only one prediction variable so it was easy to visualise the residuals, since they were functions of one variable (<code>weight</code>). For the advertising data, with more than one predictor (such as the best model above), plotting residuals is more difficult. It is possible to suppress a variable (i.e., TV <em>or</em> Sales ) one at a time and this provides some indication of their distribution, but interpreting the the resulting pair of plots requires care.</p>
-<p>Plotting multivariate residuals directly requires advanced visualisation techniques. </p>
-<h2>Resources</h2>
-<p>The <a href="files/data/Advertising.csv">data file</a> (right-click and download as `Advertising/data/Advertising.csv) is available.</p>
+		<h1>Using the MNIST Handwritten Digits Data</h1>
+<p>The <a href="files/python/LR_Ens.ipynb">notebook</a> (right-click and download this file)
+introduces the well-known MNIST digits data. Since each instance is an 8x8
+raster grayscale image, it has a moderately high dimension (64 features, 1 per
+pixel value, each feature takes on an intensity value of 0-255).</p>
+<p>The notebook itself takes you through an analysis of the data using the
+logistic regression algorithm that we met in class.</p>
+<p>Running the notebook cell-by-cell, studying the outputs and comparing your
+interpretation with the comments and guidance should help your understanding.</p>
+<p>A programming exercise is suggested - namely: to repeat the analysis on the
+data, but using ensemble classifier.</p>
+<p>Also, given the fact that the data has 64 features - would dimensionality
+reduction help when fitting this data? Give reasons for your answer. It might
+help to try some PCA here!</p>
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="01-Diamonds.html">&larr; Previous (Diamonds)</a></li>
+			<li class="previous"><a href="01-NB_SVM-PimaDiabetes.html">&larr; Previous (NB SVM-PimaDiabetes)</a></li>
 			
 			
 			
-			<li class="next"><a href="03-CreditBalance.html">Next (CreditBalance) &rarr;</a></li>
+			<li class="next"><a href="03-DT-PlayTennis.html">Next (DT-PlayTennis) &rarr;</a></li>
 			
 		</ul>
 
