@@ -223,7 +223,7 @@
 <p>Verifies the overall model building code.  Here I'm using <a href="sklearn.pipeline.Pipeline">sklearn's Pipelines</a> to do everything. Using pipeline has advantages when everything is working but tracking down errors can sometimes be difficult as error messages tend to be more verbose and cryptic. On balance, I think the pipeline approach is easier - hence its use here.  However, if you want, you can carry out this practical without using pipelines.</p>
 </li>
 <li>
-<p>Gives us an initial score, against which we can compare our progress.  Running <code>df.Survived.value_counts(normalize=True)</code> we see that 38.3% of the people did not survive. So a trivial model that always predicts <code>died</code> will have an accuracy of 61.6%. We can do much better than that with 10 minutes of coding to get a baseline model. </p>
+<p>Gives us an initial score, against which we can compare our progress.  Running <code>df.Survived.value_counts(normalize=True)</code> we see that 38.3% of the people did not survive. So a trivial model that always predicts <code>survived</code> will have an accuracy of 61.6%. We can do much better than that with 10 minutes of coding to get a baseline model. </p>
 </li>
 </ul>
 <h2>Define Variables (cat/num features and target)</h2>
